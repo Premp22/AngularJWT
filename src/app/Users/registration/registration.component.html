@@ -1,1 +1,52 @@
-
+<div class="main">
+  <div class="box">
+    <div class="lsection">
+      <form [formGroup]="addUserForm" (ngSubmit)="addUser()" class="lsection">
+        <h1>Add User</h1>
+        <input
+          type="text"
+          formControlName="id"
+          class="input"
+          placeholder="id"
+        />
+        <br />
+        <input
+          type="text"
+          formControlName="firstname"
+          class="input"
+          placeholder="firstname"
+        /><br />
+        <input
+          type="text"
+          formControlName="lastname"
+          class="input"
+          placeholder="lastname"
+        /><br />
+        <input
+          type="email"
+          formControlName="email"
+          class="input"
+          placeholder="email"
+        /><br />
+        <input
+          type="password"
+          formControlName="password"
+          class="input"
+          placeholder="password"
+        /><br />
+        <button class="btn">Register</button>
+      </form>
+    </div>
+    <div class="rsection">
+      <h2>User Details</h2>
+      <p>From Here You can Get Users Detalis</p>
+      <button
+        style="background-color: whitesmoke; color: cadetblue"
+        class="btn"
+        routerLink="../details"
+      >
+        Getusers
+      </button>
+    </div>
+  </div>
+</div>
