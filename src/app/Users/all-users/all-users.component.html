@@ -1,2 +1,28 @@
-<p>all-users works!</p>
-<button routerLink="../update">Update</button>
+<table border="1">
+  <tr>
+    <td>id</td>
+    <td>firstname</td>
+    <td>lastname</td>
+    <td>email</td>
+    <td>password</td>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>
+      {{ user.id }}
+    </td>
+    <td>
+      {{ user.firstname }}
+    </td>
+    <td>
+      {{ user.lastname }}
+    </td>
+    <td>
+      {{ user.email }}
+    </td>
+    <td>
+      {{ user.password }}
+    </td>
+    <td><button>delete</button></td>
+    <td><button routerLink="../update">Update</button></td>
+  </tr>
+</table>
