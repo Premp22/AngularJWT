@@ -3,6 +3,11 @@
     <div class="lsection">
       <form [formGroup]="addUserForm" (ngSubmit)="addUser()" class="lsection">
         <h1>Add User</h1>
+        <div *ngIf="showMsg">
+          <p>
+            <strong style="color: green"> User was added</strong>
+          </p>
+        </div>
         <input
           type="text"
           formControlName="id"

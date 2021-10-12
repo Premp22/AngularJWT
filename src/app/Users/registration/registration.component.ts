@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AllUsersComponent } from '../all-users/all-users.component';
+
 import { UserService } from 'src/app/user.service';
-import { error } from '@angular/compiler/src/util';
-import { empty } from 'rxjs';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -24,12 +23,15 @@ export class RegistrationComponent implements OnInit {
     password: [''],
   });
   ngOnInit(): void {}
+  showMsg: boolean = false;
   addUser() {
     this.userService.adduser(this.addUserForm.value).subscribe((result) => {
       console.log(result);
+      if (result == '') {
+        this.showMsg = false;
+      } else {
+        this.showMsg = true;
+      }
     });
-
-    window.alert('user was added');
-    this._router.navigate(['users/details']);
   }
 }
