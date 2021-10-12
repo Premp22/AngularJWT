@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  justify-content: right;
+  padding-top: 20px;
+  padding-right: 6%;
+}
+.btn {
+  color: bisque;
+  background-color: red;
+  cursor: pointer;
+  border: none;
+  padding: 4px;
+}

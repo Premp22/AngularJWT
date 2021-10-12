@@ -1,28 +1,46 @@
-<table border="1">
-  <tr>
-    <td>id</td>
-    <td>firstname</td>
-    <td>lastname</td>
-    <td>email</td>
-    <td>password</td>
-  </tr>
-  <tr *ngFor="let user of users">
-    <td>
-      {{ user.id }}
-    </td>
-    <td>
-      {{ user.firstname }}
-    </td>
-    <td>
-      {{ user.lastname }}
-    </td>
-    <td>
-      {{ user.email }}
-    </td>
-    <td>
-      {{ user.password }}
-    </td>
-    <td><button>delete</button></td>
-    <td><button routerLink="../update">Update</button></td>
-  </tr>
-</table>
+<div class="main">
+  <table class="table" border="1">
+    <tr>
+      <td>id</td>
+      <td>firstname</td>
+      <td>lastname</td>
+      <td>email</td>
+      <td>password</td>
+      <td>delete</td>
+      <td>update</td>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>
+        {{ user.id }}
+      </td>
+      <td>
+        {{ user.firstname }}
+      </td>
+      <td>
+        {{ user.lastname }}
+      </td>
+      <td>
+        {{ user.email }}
+      </td>
+      <td>
+        {{ user.password }}
+      </td>
+      <td>
+        <button
+          (click)="deleteUser(user.id)"
+          style="background-color: rgb(175, 49, 49); color: whitesmoke"
+        >
+          delete
+        </button>
+      </td>
+      <td>
+        <button
+          routerLink="../update/{{ user.id }}"
+          style="background-color: steelblue; color: whitesmoke"
+        >
+          Update
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

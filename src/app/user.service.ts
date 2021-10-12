@@ -21,4 +21,17 @@ export class UserService {
   getUsers(): Observable<user> {
     return this.http.get<user>('https://api-task-rest.herokuapp.com/users');
   }
+  getCurrentUser(id: Number) {
+    return this.http.get('https://api-task-rest.herokuapp.com/users/' + id);
+  }
+  updateUser(id: Number, data: user) {
+    return this.http.patch(
+      'https://api-task-rest.herokuapp.com/users/' + id,
+      data
+    );
+  }
+
+  deleteUser(id: Number) {
+    return this.http.delete('https://api-task-rest.herokuapp.com/users/' + id);
+  }
 }

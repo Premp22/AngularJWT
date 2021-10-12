@@ -27,11 +27,8 @@ export class RegistrationComponent implements OnInit {
   addUser() {
     this.userService.adduser(this.addUserForm.value).subscribe((result) => {
       console.log(result);
-      if (result == '') {
-        this.showMsg = false;
-      } else {
-        this.showMsg = true;
-      }
+      this.showMsg = true;
+      this._router.navigate(['users/details']);
     });
   }
 }

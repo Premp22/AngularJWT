@@ -1,1 +1,35 @@
-<p>updation works!</p>
+<div class="lsection">
+  <div class="content">
+    <form [formGroup]="editUserForm" (ngSubmit)="editUser()" class="lsection">
+      <h1>Edit User</h1>
+
+      <input type="text" formControlName="id" class="input" placeholder="id" />
+      <br />
+      <input
+        type="text"
+        formControlName="firstname"
+        class="input"
+        placeholder="firstname"
+      /><br />
+      <input
+        type="text"
+        formControlName="lastname"
+        class="input"
+        placeholder="lastname"
+      /><br />
+      <input
+        type="email"
+        formControlName="email"
+        class="input"
+        placeholder="email"
+      /><br />
+      <input
+        type="text"
+        formControlName="password"
+        class="input"
+        placeholder="password"
+      /><br />
+      <button class="btn">Update</button>
+    </form>
+  </div>
+</div>

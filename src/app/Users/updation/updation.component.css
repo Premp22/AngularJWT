@@ -1,0 +1,27 @@
+.lsection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.content {
+  box-shadow: 0 0 5px;
+  width: 35%;
+}
+.input {
+  background: #ecf0f1;
+  border: #ccc 0.06rem solid;
+  border-bottom: #ccc 0.125 solid;
+  padding: 0.5rem;
+
+  margin-top: 0.625rem;
+  font-size: 1em;
+  border-radius: 0.25rem;
+}
+h1 {
+  font-size: 1.5em;
+  color: cadetblue;
+}
+.btn {
+  padding-top: 5px;
+}
