@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/Users/user.service';
 @Component({
   selector: 'app-updation',
   templateUrl: './updation.component.html',
@@ -45,7 +45,7 @@ export class UpdationComponent implements OnInit {
       .updateUser(this.router.snapshot.params.id, this.editUserForm.value)
       .subscribe((results) => {
         console.log(results);
+        this._router.navigate(['users/details']);
       });
-    this._router.navigate(['users/details']);
   }
 }
