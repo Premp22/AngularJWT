@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/Users/user.service';
@@ -16,12 +16,28 @@ export class RegistrationComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
   addUserForm = this.formBuilder.group({
-    id: [''],
-    firstname: [''],
-    lastname: [''],
-    email: [''],
-    password: [''],
+    id: ['', [Validators.required]],
+    firstname: ['', [Validators.required]],
+    lastname: ['', [Validators.required]],
+    email: ['', [Validators.email, Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(4)]],
   });
+
+  get id() {
+    return this.addUserForm.get('id');
+  }
+  get firstname() {
+    return this.addUserForm.get('firstname');
+  }
+  get lastname() {
+    return this.addUserForm.get('lastname');
+  }
+  get email() {
+    return this.addUserForm.get('email');
+  }
+  get password() {
+    return this.addUserForm.get('password');
+  }
   ngOnInit(): void {}
   showMsg: boolean = false;
   addUser() {

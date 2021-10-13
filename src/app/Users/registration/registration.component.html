@@ -3,11 +3,7 @@
     <div class="lsection">
       <form [formGroup]="addUserForm" (ngSubmit)="addUser()" class="lsection">
         <h1>Add User</h1>
-        <div *ngIf="showMsg">
-          <p>
-            <strong style="color: green"> User was added</strong>
-          </p>
-        </div>
+
         <input
           type="text"
           formControlName="id"
@@ -15,31 +11,52 @@
           placeholder="id"
         />
         <br />
+        <span style="color: red" *ngIf="id && id.invalid && id.touched"
+          >This is a required field</span
+        >
         <input
           type="text"
           formControlName="firstname"
           class="input"
           placeholder="firstname"
         /><br />
+        <span
+          style="color: red"
+          *ngIf="firstname && firstname.invalid && firstname.touched"
+          >This is a required field</span
+        >
         <input
           type="text"
           formControlName="lastname"
           class="input"
           placeholder="lastname"
         /><br />
+        <span
+          style="color: red"
+          *ngIf="lastname && lastname.invalid && lastname.touched"
+          >This is a required field</span
+        >
         <input
           type="email"
           formControlName="email"
           class="input"
           placeholder="email"
         /><br />
+        <span style="color: red" *ngIf="email && email.invalid && email.touched"
+          >Please Enter a valid email</span
+        >
         <input
           type="password"
           formControlName="password"
           class="input"
           placeholder="password"
         /><br />
-        <button class="btn">Add</button>
+        <span
+          style="color: red"
+          *ngIf="password && password.invalid && password.touched"
+          >Please Enter a valid password</span
+        >
+        <button [disabled]="addUserForm.invalid" class="btn">Add</button>
       </form>
     </div>
     <div class="rsection">
