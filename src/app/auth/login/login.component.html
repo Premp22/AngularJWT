@@ -4,10 +4,14 @@
       <h2>Login Form</h2>
       <input
         type="text"
-        formControlName="username"
-        placeholder="username"
+        formControlName="email"
+        placeholder="email"
         class="input"
       />
+      <br />
+      <span style="color: red" *ngIf="email && email.invalid && email.touched"
+        >Please Enter a valid email</span
+      >
       <br />
       <input
         type="password"
@@ -15,7 +19,13 @@
         placeholder="password"
         class="input"
       /><br />
-      <button class="btn">Login</button>
+      <span
+        style="color: red"
+        *ngIf="password && password.invalid && password.touched"
+        >Please Enter a valid password</span
+      >
+      <button [disabled]="loginForm.invalid" class="btn">Login</button>
+      <span style="color: red">{{ showMgs }}</span>
     </form>
   </div>
 </div>

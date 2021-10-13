@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   constructor() {}
-  login(username: string, password: string) {
-    if (username == 'username' && password == 'password') {
+  login(email: string, password: string) {
+    if (email == 'test@email.com' && password == 'password') {
       localStorage.setItem('currentuser', 'logedin');
       return true;
     }
