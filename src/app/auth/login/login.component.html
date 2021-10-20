@@ -25,7 +25,14 @@
         >Please Enter a valid password</span
       >
       <button [disabled]="loginForm.invalid" class="btn">Login</button>
-      <span style="color: red">{{ showMgs }}</span>
+      <span style="color: red" *ngIf="showErrorMessage"
+        >invalid email or password</span
+      >
     </form>
+    <div class="reg">
+      <span style="color: cadetblue; text-align: center">Click to register</span
+      ><br />
+      <button class="rbtn" routerLink="register">Register</button>
+    </div>
   </div>
 </div>

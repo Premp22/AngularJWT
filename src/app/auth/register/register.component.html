@@ -1,0 +1,51 @@
+<div class="main">
+  <div class="box">
+    <div class="lsection">
+      <form
+        [formGroup]="addUserForm"
+        (ngSubmit)="registerUser()"
+        class="lsection"
+      >
+        <h1>Registration</h1>
+
+        <input
+          type="text"
+          formControlName="name"
+          class="input"
+          placeholder="name"
+        /><br />
+        <span style="color: red" *ngIf="name && name.invalid && name.touched"
+          >This is a required field</span
+        >
+
+        <input
+          type="email"
+          formControlName="email"
+          class="input"
+          placeholder="email"
+        /><br />
+        <span style="color: red" *ngIf="email && email.invalid && email.touched"
+          >Please Enter a valid email</span
+        >
+        <input
+          type="password"
+          formControlName="password"
+          class="input"
+          placeholder="password"
+        /><br />
+        <span
+          style="color: red"
+          *ngIf="password && password.invalid && password.touched"
+          >Please Enter a valid password</span
+        >
+        <button [disabled]="addUserForm.invalid" class="btn">Register</button>
+        <span style="color: green" *ngIf="showMsg">Registeration Success</span>
+      </form>
+      <a
+        style="text-decoration: none; color: cadetblue; padding-top: 20px"
+        routerLink="../../login"
+        >Back to login</a
+      >
+    </div>
+  </div>
+</div>

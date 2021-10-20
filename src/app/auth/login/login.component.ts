@@ -31,19 +31,18 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
+  showErrorMessage = false;
   loginUser() {
-    console.log(this.loginForm.value);
-    if (
-      this.authservice.login(
-        this.loginForm.value.email,
-        this.loginForm.value.password
-      )
-    ) {
-      console.log('success');
-      this._router.navigate(['../users/register']);
-    } else {
-      this._router.navigate(['login']);
-      this.showMgs = 'invalid email or password';
-    }
+    this.authservice.loginUser(this.loginForm.value).subscribe(
+      (result: any) => {
+        if (result.token) {
+          localStorage.setItem('token', result.token);
+          this._router.navigate(['../users/register']);
+        }
+      },
+      (error) => {
+        this.showErrorMessage = true;
+      }
+    );
   }
 }
